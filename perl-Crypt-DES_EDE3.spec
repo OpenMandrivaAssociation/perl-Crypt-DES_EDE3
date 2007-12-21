@@ -5,6 +5,7 @@ Release:	 %mkrel 5
 License:	 Artistic
 Group:		 Development/Perl
 Source:		 http://search.cpan.org/%{name}-%{version}.tar.bz2
+BuildRoot:	 %_tmppath/%name-%version-root
 Buildrequires:	 perl-devel
 URL:		 http://search.cpan.org/
 Buildarch:	noarch
