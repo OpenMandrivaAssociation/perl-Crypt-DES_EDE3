@@ -1,7 +1,7 @@
 Name:		 perl-Crypt-DES_EDE3
 Summary:	 Crypt-DES_EDE3 Perl module
 Version:	 0.01
-Release:	 %mkrel 5
+Release:	 %mkrel 6
 License:	 Artistic
 Group:		 Development/Perl
 Source:		 http://search.cpan.org/%{name}-%{version}.tar.bz2
