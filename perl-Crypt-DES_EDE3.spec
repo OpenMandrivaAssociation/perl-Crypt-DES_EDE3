@@ -1,42 +1,36 @@
-Name:		 perl-Crypt-DES_EDE3
-Summary:	 Crypt-DES_EDE3 Perl module
+%define module  Crypt-DES_EDE3
+
+Name:		 perl-%{module}
+Summary:	 Triple-DES EDE encryption/decryption
 Version:	 0.01
-Release:	 %mkrel 6
+Release:	 %mkrel 7
 License:	 Artistic
 Group:		 Development/Perl
-Source:		 http://search.cpan.org/%{name}-%{version}.tar.bz2
-BuildRoot:	 %_tmppath/%name-%version-root
-Buildrequires:	 perl-devel
-URL:		 http://search.cpan.org/
+URL:		http://search.cpan.org/dist/%{module}
+Source:     http://www.cpan.org/modules/by-module/Crypt/%{module}-%{version}.tar.gz
 Buildarch:	noarch
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 This is Crypt::DES_EDE3, a module implementing Triple-DES EDE
 (encrypt-decrypt-encrypt) encryption and decryption.
 
 %prep
-
-%setup
+%setup -q -n %{module}-%{version}
 
 %build
-[ -n "%{buildroot}" -a "%{buildroot}" != / ] && rm -rf %{buildroot}
-
-CFLAGS="$RPM_OPT_FLAGS" %{__perl} Makefile.PL INSTALLDIRS=vendor
-make
+%{__perl} Makefile.PL INSTALLDIRS=vendor
+%make CFLAGS="%{optflags}"
 
 %install
-
-make PREFIX=$RPM_BUILD_ROOT%{_prefix} DESTDIR=$RPM_BUILD_ROOT install
+rm -rf %{buildroot}
+%makeinstall_std
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-, root, root)
 %doc MANIFEST README
-%{perl_vendorlib}/Crypt/*.pm
+%{perl_vendorlib}/Crypt
 %{_mandir}/*/*
-
-
-
-
