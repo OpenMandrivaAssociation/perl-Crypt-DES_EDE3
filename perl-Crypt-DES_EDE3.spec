@@ -3,7 +3,7 @@
 Name:		 perl-%{module}
 Summary:	 Triple-DES EDE encryption/decryption
 Version:	 0.01
-Release:	 %mkrel 7
+Release:	 %mkrel 9
 License:	 Artistic
 Group:		 Development/Perl
 URL:		http://search.cpan.org/dist/%{module}
