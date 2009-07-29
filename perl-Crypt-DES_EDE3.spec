@@ -1,22 +1,25 @@
-%define module  Crypt-DES_EDE3
+%define upstream_name    Crypt-DES_EDE3
+%define upstream_version 0.01
 
-Name:		 perl-%{module}
-Summary:	 Triple-DES EDE encryption/decryption
-Version:	 0.01
-Release:	 %mkrel 9
-License:	 Artistic
-Group:		 Development/Perl
-URL:		http://search.cpan.org/dist/%{module}
-Source:     http://www.cpan.org/modules/by-module/Crypt/%{module}-%{version}.tar.gz
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
+Summary:	Triple-DES EDE encryption/decryption
+License:	Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:    http://www.cpan.org/modules/by-module/Crypt/%{upstream_name}-%{upstream_version}.tar.gz
+
 Buildarch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 This is Crypt::DES_EDE3, a module implementing Triple-DES EDE
 (encrypt-decrypt-encrypt) encryption and decryption.
 
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
