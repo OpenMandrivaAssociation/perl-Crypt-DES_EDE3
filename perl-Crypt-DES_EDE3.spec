@@ -1,8 +1,8 @@
 %define modname	Crypt-DES_EDE3
 Summary:	Triple-DES EDE encryption/decryption
 Name:		perl-%{modname}
-Version:	0.01
-Release:	19
+Version:	0.03
+Release:	1
 License:	Artistic
 Group:		Development/Perl
 Url:		https://metacpan.org/dist/%{modname}
@@ -16,7 +16,7 @@ This is Crypt::DES_EDE3, a module implementing Triple-DES EDE
 (encrypt-decrypt-encrypt) encryption and decryption.
 
 %prep
-%setup -qn %{modname}-%{version}
+%setup -qn %{modname}-%{version} -n Crypt-DES_EDE3-0.03
 
 %build
 %__perl Makefile.PL INSTALLDIRS=vendor
